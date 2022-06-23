@@ -10,6 +10,7 @@
   --our-team-bg-color: #f5f4fa;
   --work-item-border-color: #eeeeee;
   --heder-bord-color: #ececec;
+  --svg-icon-color: #afb1b8;
   --num-of-cards: 1; /*number of cards in flex grid*/
   --space-between: 30px; /*space betwwen cards*/
 }
@@ -83,6 +84,10 @@ img {
       var(--num-of-cards)
   );
 }
+
+.icon {
+  fill: currentColor;
+}
 /* -------------------------Common styles--------------------------- */
 
 /* -------------------------------Header----------------------------- */
@@ -113,19 +118,24 @@ img {
 
 .logo-header {
   color: var(--main-black-color);
+  margin-right: 93px;
 }
 
-/* -----------------------Navigation */
-.nav {
-  margin-left: 93px;
-}
-
+/* -----------------------Navigation and contacts */
 .list-nav > li:not(:first-child) {
   margin-left: 50px;
 }
 
+.header-contact-list {
+  margin-left: auto;
+}
+
+.header-contact-list > li:not(:first-child) {
+  margin-left: 50px;
+}
+
 .header-link {
-  display: block;
+  display: inline-block;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -138,29 +148,26 @@ img {
   color: var(--second-text-title-color);
 }
 
-.header-link:hover,
-.header-link:focus {
-  color: var(--accent-color);
-}
-
 .current {
   color: var(--accent-color);
 }
 
-.header-contact-list {
-  margin-left: auto;
-}
-
-.header-contact-list > li:not(:first-child) {
-  margin-left: 50px;
-}
-/* -----------------------Navigation */
-
-/* ----------------------- Header Contacts */
 .contact-link {
+  display: flex;
+  align-items: center;
+
   color: inherit;
 }
-/* ----------------------- Header Contacts */
+
+.contact-link .icon {
+  margin-right: 10px;
+}
+
+.header-link:hover,
+.header-link:focus {
+  color: var(--accent-color);
+}
+/* -----------------------Navigation and contacts */
 /* -------------------------------Header----------------------------- */
 
 /* -------------------------------Main----------------------------- */
@@ -171,6 +178,13 @@ img {
   text-align: center;
 
   background-color: var(--accent-bg-color);
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/main-page/hero.jpg), linear-gradient(#c4c4c4, #c4c4c4);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .box-title {
@@ -238,6 +252,17 @@ img {
 /* nuber of cards */
 .features-list > .item:nth-child(4n + 4) {
   margin-right: 0;
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+
+  background-color: var(--our-team-bg-color);
 }
 
 .features {
@@ -319,8 +344,80 @@ img {
 .major {
   font-size: 16px;
   line-height: 1.19;
+  margin-bottom: 16px;
 }
+
+/* ------social list-------- */
+.social-list {
+  width: 206px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-link {
+  display: flex;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--svg-icon-color);
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--accent-color);
+  color: var(--main-white-color);
+}
+
+.social-list > .item {
+  --num-of-cards: 4;
+  --space-between: 10px;
+}
+
+.social-list > .item:nth-child(n + 5) {
+  /* nuber of cards + 1 */
+  margin-top: var(--space-between);
+}
+
+/* nuber of cards */
+.social-list > .item:nth-child(4n + 4) {
+  margin-right: 0;
+}
+/* ------social list-------- */
 /* ----------------------- Our team */
+
+/* ----------------------- Regular customers */
+.customers-link {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid var(--svg-icon-color);
+  color: var(--svg-icon-color);
+}
+
+.customers-link:hover,
+.customers-link:focus {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.customers-list > .item {
+  --num-of-cards: 6;
+}
+
+.customers-list > .item:nth-child(n + 7) {
+  /* nuber of cards + 1 */
+  margin-top: var(--space-between);
+}
+
+/* nuber of cards */
+.customers-list > .item:nth-child(6n + 6) {
+  margin-right: 0;
+}
+/* ----------------------- Regular customers */
 /* -------------------------------Main----------------------------- */
 
 /* -------------------------------Footer----------------------------- */
@@ -446,3 +543,8 @@ img {
 }
 /* ----------------------- Work list */
 /* -------------------------------Main----------------------------- */
+/* 
+
+* {
+  outline: 2px solid tomato;
+} */
